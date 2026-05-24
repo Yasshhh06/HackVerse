@@ -165,18 +165,26 @@ const Hero = () => {
             animate={{ x: ["0%", "-100%"] }}
             transition={{
               repeat: Infinity,
-              duration: 40,
+              duration: 45,
               ease: "linear"
             }}
             className="whitespace-nowrap flex items-center gap-12 relative z-10"
           >
-            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4">
+            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
               <span className="text-neon-blue"> [ NOTICE ] </span>
               Registration ends on <span className="text-white font-bold">10 JUN 12:00 PM</span>
             </p>
-            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4">
+            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
+              <span className="text-neon-purple"> [ BONUS ] </span>
+              Each participant receives <span className="text-neon-blue font-bold">$50 worth of AI credits</span> after registration!
+            </p>
+            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
               <span className="text-neon-blue"> [ NOTICE ] </span>
               Registration ends on <span className="text-white font-bold">10 JUN 12:00 PM</span>
+            </p>
+            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
+              <span className="text-neon-purple"> [ BONUS ] </span>
+              Each participant receives <span className="text-neon-blue font-bold">$50 worth of AI credits</span> after registration!
             </p>
           </motion.div>
 

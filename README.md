@@ -11,7 +11,7 @@ HackVerse is a 12-hour national-level hybrid hackathon featuring:
 - **Date**: June 14, 2026
 - **Venue**: Announced Soon (Mumbai)
 - **Tracks**: EdTech, AI/ML, Web/App Dev, CyberTech, Open Innovation
-- **Prizes**: ₹50k+ in rewards
+- **Prizes**: ₹50k+ in rewards (Each participant will receive $50 worth of AI credits coupons after registration)
 - **Participants**: 400+ developers nationwide
 
 ## 🛠️ Tech Stack

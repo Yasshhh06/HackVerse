@@ -80,6 +80,15 @@ const Registration = () => {
                   <p className="text-gray-400 mt-1">2 – 4 Members</p>
                 </div>
               </li>
+              <li className="flex items-start gap-4 border-l border-neon-purple/30 pl-3">
+                <span className="p-2 rounded bg-neon-purple/10 text-neon-purple shrink-0">🎁</span>
+                <div>
+                  <strong className="text-neon-purple">Special Incentive:</strong>
+                  <p className="text-gray-200 mt-1 font-bold">
+                    Each participant will receive <span className="text-neon-blue font-bold">$50 worth of AI credits coupons</span> after successful registration!
+                  </p>
+                </div>
+              </li>
               <li className="flex items-start gap-4">
                 <span className="p-2 rounded bg-neon-purple/10 text-neon-purple shrink-0">📌</span>
                 <div>

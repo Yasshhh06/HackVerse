@@ -82,7 +82,7 @@ const Mission = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             { label: 'OPERATIVES', value: '200+', icon: '👥' },
-            { label: 'BOUNTY', value: '₹1,00,000+', icon: '🏆' },
+            { label: 'BOUNTY', value: '₹50,000+', icon: '🏆', desc: '$50 AI Credits Per Operative' },
             { label: 'MENTORS', value: '5+', icon: '🛡' }
           ].map((stat, index) => (
             <motion.div
@@ -95,7 +95,12 @@ const Mission = () => {
             >
               <div className="text-2xl mb-2">{stat.icon}</div>
               <div className="text-3xl font-bold text-neon-blue mb-1 font-orbitron rgb-hover">{stat.value}</div>
-              <div className="text-[10px] tracking-widest uppercase text-gray-500 font-mono">{stat.label}</div>
+              <div className="text-[10px] tracking-widest uppercase text-gray-500 font-mono mb-1">{stat.label}</div>
+              {stat.desc && (
+                <div className="text-[9px] text-neon-purple font-mono mt-1 border-t border-neon-blue/10 pt-1.5 w-full uppercase tracking-wider flicker">
+                  {stat.desc}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
