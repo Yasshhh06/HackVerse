@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Users, AlertTriangle, Phone, Mail, ArrowLeft, ExternalLink, HelpCircle, XCircle, CreditCard, ShieldAlert, Award, FileText, CheckCircle2, ClipboardCheck } from "lucide-react";
 
 // --- CONFIGURATION ---
@@ -21,7 +21,25 @@ const tabs = [
 ];
 
 const Registration = () => {
-  const [activeTab, setActiveTab] = useState("rsvp");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tabParam = searchParams.get("tab");
+
+  const defaultTab = ["rsvp", "register", "cancellation", "travel", "submission"].includes(tabParam) 
+    ? tabParam 
+    : "rsvp";
+
+  const [activeTab, setActiveTab] = useState(defaultTab);
+
+  useEffect(() => {
+    if (tabParam && ["rsvp", "register", "cancellation", "travel", "submission"].includes(tabParam)) {
+      setActiveTab(tabParam);
+    }
+  }, [tabParam]);
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    setSearchParams({ tab: tabId });
+  };
 
   return (
     <section className="py-24 px-6 relative bg-black/60 overflow-hidden min-h-screen flex flex-col items-center scanlines">
@@ -67,7 +85,7 @@ const Registration = () => {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabChange(tab.id)}
               className={`relative px-5 py-3 font-orbitron font-bold text-xs tracking-wider transition-all duration-300 flex items-center justify-center gap-2 border cursor-pointer select-none outline-none ${
                 activeTab === tab.id
                   ? "bg-neon-purple/10 border-neon-purple text-neon-purple shadow-[0_0_20px_rgba(217,70,239,0.25)]"

@@ -8,8 +8,8 @@ const FloatingNavbar = () => {
   const [hasNewUpdate, setHasNewUpdate] = useState(true);
 
   const menuItems = [
-    { name: "RSVP", icon: <ClipboardCheck size={20} />, to: "/rsvp" },
-    { name: "Register", icon: <Send size={20} />, to: "/registration" },
+    { name: "RSVP", icon: <ClipboardCheck size={20} />, to: "/registration?tab=rsvp" },
+    { name: "Register", icon: <Send size={20} />, to: "/registration?tab=register" },
     { 
       name: "Updates", 
       icon: (
