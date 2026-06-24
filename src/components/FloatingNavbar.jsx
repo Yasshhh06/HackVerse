@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Home, MapPin, X, Send, Bell } from "lucide-react";
+import { Plus, Home, MapPin, X, Send, Bell, ClipboardCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FloatingNavbar = () => {
@@ -8,6 +8,7 @@ const FloatingNavbar = () => {
   const [hasNewUpdate, setHasNewUpdate] = useState(true);
 
   const menuItems = [
+    { name: "RSVP", icon: <ClipboardCheck size={20} />, to: "/rsvp" },
     { name: "Register", icon: <Send size={20} />, to: "/registration" },
     { 
       name: "Updates", 

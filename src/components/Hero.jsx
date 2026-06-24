@@ -68,12 +68,12 @@ const Hero = () => {
         className="relative z-10 mb-6 max-w-xl px-4"
       >
         <Link 
-          to="/updates" 
+          to="/rsvp" 
           className="inline-flex items-center gap-3 bg-cyber-red/10 hover:bg-cyber-red/20 border border-cyber-red/50 px-4 py-2.5 rounded text-xs md:text-sm font-mono text-white transition-all shadow-[0_0_15px_rgba(255,0,60,0.25)] hover:shadow-[0_0_25px_rgba(255,0,60,0.45)] group cursor-pointer"
         >
-          <span className="bg-cyber-red px-1.5 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider animate-pulse">ALERT</span>
+          <span className="bg-cyber-red px-1.5 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider animate-pulse">ACTION REQUIRED</span>
           <span className="tracking-wide text-gray-200 group-hover:text-white transition-colors text-left">
-            🚨 HACKVERSE will now be conducted completely ONLINE. Click here to read full details.
+            🚨 Submit Final RSVP for HackVerse Online by 25th June, 12:00 PM.
           </span>
           <ArrowRight size={14} className="text-cyber-red group-hover:translate-x-1 transition-transform shrink-0" />
         </Link>
@@ -141,12 +141,22 @@ const Hero = () => {
       {/* CTA Buttons */}
       <div className="relative z-10 flex flex-wrap justify-center gap-6 mb-12">
         <Link
-          to="/registration"
+          to="/rsvp"
           className="group relative px-8 py-4 bg-black/60 border-2 border-neon-blue/80 text-neon-blue font-orbitron font-bold tracking-widest hover:bg-white hover:text-blue-600 hover:shadow-[0_0_40px_rgba(0,240,255,0.6)] transition-all duration-300 overflow-hidden"
           style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
         >
           <span className="relative z-10 flex items-center gap-3">
-            REGISTER NOW <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            SUBMIT FINAL RSVP <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </span>
+        </Link>
+
+        <Link
+          to="/registration"
+          className="group relative px-8 py-4 bg-black/60 border-2 border-neon-purple/80 text-neon-purple font-orbitron font-bold tracking-widest hover:bg-neon-purple hover:text-black hover:shadow-[0_0_40px_rgba(217,70,239,0.6)] transition-all duration-300 overflow-hidden"
+          style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
+        >
+          <span className="relative z-10 flex items-center gap-3">
+            SERVICE CELL PORTAL <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </span>
         </Link>
 

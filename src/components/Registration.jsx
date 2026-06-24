@@ -1,25 +1,27 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Users, AlertTriangle, Phone, Mail, ArrowLeft, ExternalLink, HelpCircle, XCircle, CreditCard, ShieldAlert, Award, FileText, CheckCircle2 } from "lucide-react";
+import { Users, AlertTriangle, Phone, Mail, ArrowLeft, ExternalLink, HelpCircle, XCircle, CreditCard, ShieldAlert, Award, FileText, CheckCircle2, ClipboardCheck } from "lucide-react";
 
 // --- CONFIGURATION ---
 const GOOGLE_FORM_URL = "https://forms.gle/aE3Qa2pcsdfR19sD8"; // ACTUAL GOOGLE FORM LINK
 const CANCELLATION_FORM_URL = "https://forms.gle/oSJNPF8UGxkE6np97";
 const TRAVEL_REFUND_FORM_URL = "https://forms.gle/o77smVkaxhpt917x7";
 const SUBMISSION_FORM_URL = "https://forms.gle/UESRQiKAeM1kz8Vg6";
+const RSVP_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfJsB3vTEKOliPMZcILT31KKqLZKOiTCcktmdMcywyrgRa3-A/viewform?usp=dialog";
 const CONTACT_PHONE = "+91 9967053816";
 const CONTACT_EMAIL = "contact@hackverse.dev"; // Placeholder email
 
 const tabs = [
-  { id: "register", label: "01 // REGISTER & REFUND INFO", icon: <Users size={16} /> },
-  { id: "cancellation", label: "02 // PARTICIPATION CANCEL", icon: <XCircle size={16} /> },
-  { id: "travel", label: "03 // TRAVEL & STAY LOSS", icon: <CreditCard size={16} /> },
-  { id: "submission", label: "04 // PROTOTYPE SUBMIT", icon: <FileText size={16} /> }
+  { id: "rsvp", label: "01 // FINAL RSVP", icon: <ClipboardCheck size={16} /> },
+  { id: "register", label: "02 // REGISTER & REFUND INFO", icon: <Users size={16} /> },
+  { id: "cancellation", label: "03 // PARTICIPATION CANCEL", icon: <XCircle size={16} /> },
+  { id: "travel", label: "04 // TRAVEL & STAY LOSS", icon: <CreditCard size={16} /> },
+  { id: "submission", label: "05 // PROTOTYPE SUBMIT", icon: <FileText size={16} /> }
 ];
 
 const Registration = () => {
-  const [activeTab, setActiveTab] = useState("register");
+  const [activeTab, setActiveTab] = useState("rsvp");
 
   return (
     <section className="py-24 px-6 relative bg-black/60 overflow-hidden min-h-screen flex flex-col items-center scanlines">
@@ -95,6 +97,115 @@ const Registration = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
           >
+            {activeTab === "rsvp" && (
+              <>
+                {/* Info Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                  
+                  {/* Card 1: RSVP Details */}
+                  <div className="bg-black/75 border border-neon-purple/20 rounded-xl p-8 relative overflow-hidden backdrop-blur-md hover:border-neon-purple/60 hover:shadow-[0_0_30px_rgba(217,70,239,0.15)] transition-all duration-300">
+                    <div className="absolute top-0 right-0 p-4 opacity-5">
+                      <ClipboardCheck size={80} className="text-neon-purple" />
+                    </div>
+                    
+                    <h3 className="text-xl font-orbitron font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-3">
+                      <ClipboardCheck size={20} className="text-neon-purple" /> RSVP & Confirmation Details
+                    </h3>
+
+                    <ul className="space-y-6 font-mono text-xs md:text-sm text-gray-300">
+                      <li className="flex items-start gap-4 border-l-2 border-[#00F0FF] pl-3">
+                        <span className="p-2 rounded bg-[#00F0FF]/10 text-[#00F0FF] shrink-0">⚡</span>
+                        <div>
+                          <strong className="text-[#00F0FF]">Online Transition:</strong>
+                          <p className="text-gray-400 mt-1">As HackVerse is now completely ONLINE, you must submit this final RSVP form to confirm your participation.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-4 border-l-2 border-cyber-red pl-3">
+                        <span className="p-2 rounded bg-cyber-red/10 text-cyber-red shrink-0">⏰</span>
+                        <div>
+                          <strong className="text-cyber-red">RSVP Deadline:</strong>
+                          <p className="text-gray-200 mt-1 font-bold">25th June, 12:00 PM (Strict). Failure to submit this form before the deadline will result in automatic withdrawal of your team.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <span className="p-2 rounded bg-neon-purple/10 text-neon-purple shrink-0">💸</span>
+                        <div>
+                          <strong className="text-white">Fee Refund:</strong>
+                          <p className="text-gray-400 mt-1">A full refund of ₹1000 will be automatically returned to all registered teams within 15 – 20 days after 29th June 2026.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <span className="p-2 rounded bg-neon-purple/10 text-neon-purple shrink-0">👥</span>
+                        <div>
+                          <strong className="text-white">Form Submission:</strong>
+                          <p className="text-gray-400 mt-1">Must be submitted by the Team Leader only. One submission per team.</p>
+                        </div>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <span className="p-2 rounded bg-neon-purple/10 text-neon-purple shrink-0">🤖</span>
+                        <div>
+                          <strong className="text-white">Community Node:</strong>
+                          <p className="text-gray-400 mt-1">Make sure all team members have joined the official Discord & WhatsApp groups for evaluation briefing.</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Card 2: Need Help Desk */}
+                  <div className="bg-black/75 border border-neon-blue/20 rounded-xl p-8 relative overflow-hidden backdrop-blur-md hover:border-neon-blue/60 hover:shadow-[0_0_30px_rgba(0,240,255,0.15)] transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-orbitron font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-3">
+                        <HelpCircle size={20} className="text-neon-blue" /> Need Help?
+                      </h3>
+                      <p className="text-gray-400 font-mono text-xs md:text-sm leading-relaxed mb-6">
+                        Contact Team HackVerse support cell for any RSVP issues or to query your team's registration status.
+                      </p>
+                    </div>
+
+                    <div className="space-y-4 font-mono text-xs md:text-sm">
+                      <a
+                        href={`tel:${CONTACT_PHONE}`}
+                        className="flex items-center gap-3 text-gray-300 hover:text-neon-blue transition-colors group"
+                      >
+                        <Phone size={16} className="text-neon-blue group-hover:scale-110 transition-transform" />
+                        <span>{CONTACT_PHONE} (Yash Mohite)</span>
+                      </a>
+                      <div className="flex items-center gap-3 text-gray-500 cursor-not-allowed">
+                        <Mail size={16} className="text-gray-600" />
+                        <span>{CONTACT_EMAIL}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-6 text-neon-blue/60 font-mono text-[10px] uppercase">
+                      // RSVP_NODE_ONLINE
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Center CTA Button */}
+                <div className="text-center bg-black/40 border border-white/10 rounded-xl p-8 backdrop-blur-sm">
+                  <p className="text-gray-400 font-mono text-xs md:text-sm mb-6 leading-relaxed">
+                    Confirm your details carefully before entering the RSVP portal.
+                  </p>
+
+                  <a
+                    href={RSVP_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center gap-3 px-8 py-4 bg-neon-purple/10 border-2 border-neon-purple text-neon-purple font-orbitron font-black tracking-[0.2em] hover:bg-neon-purple hover:text-black hover:shadow-[0_0_40px_rgba(217,70,239,0.5)] transition-all duration-300 uppercase rounded"
+                  >
+                    <span>CONFIRM RSVP HERE</span>
+                    <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+
+                  <p className="text-cyber-red/80 font-mono text-[10px] mt-6 tracking-wide italic">
+                    &gt; Failure to submit this form before 25th June, 12:00 PM will result in automatic withdrawal.
+                  </p>
+                </div>
+              </>
+            )}
+
             {activeTab === "register" && (
               <>
                 {/* Info Grid */}

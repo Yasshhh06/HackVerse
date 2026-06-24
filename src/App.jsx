@@ -15,6 +15,7 @@ import Rules from './components/Rules';
 import Footer from './components/Footer';
 import Registration from './components/Registration';
 import Updates from './components/Updates';
+import RSVP from './components/RSVP';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -56,6 +57,7 @@ function App() {
             <Route path="/venue" element={<div className="relative z-[2]"><Venue /></div>} />
             <Route path="/registration" element={<div className="relative z-[2]"><Registration /></div>} />
             <Route path="/updates" element={<div className="relative z-[2]"><Updates /></div>} />
+            <Route path="/rsvp" element={<div className="relative z-[2]"><RSVP /></div>} />
           </Routes>
         </>
       )}
