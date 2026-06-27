@@ -1,17 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Lock, Unlock, Sparkles, TrendingUp, DollarSign, Zap, Check, Users, Layers, ShieldAlert, Award, FileText, Search, RefreshCw, Star } from "lucide-react";
+import { ArrowLeft, Lock, Unlock, Sparkles, TrendingUp, DollarSign, Zap, Check, Users, Layers, Star, Award, FileText } from "lucide-react";
 
 const Challenges = () => {
   const [isDecrypted, setIsDecrypted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [activeTab, setActiveTab] = useState("directives"); // "directives" or "allocator"
-  
-  // Interactive Allocator states
-  const [teamNameInput, setTeamNameInput] = useState("");
-  const [searchedTeam, setSearchedTeam] = useState("");
-  const [assignedChallenge, setAssignedChallenge] = useState(null);
 
   const criteria = [
     {
@@ -56,83 +50,48 @@ const Challenges = () => {
 
   const teamChallenges = [
     {
-      code: "CHALLENGE_1",
       title: "🔒 Challenge 1: The Validation Hack (Market Validation)",
       icon: "🔍",
       task: "Pitch your prototype to 3-5 random people (or potential users online) who are not developers. Get their raw feedback, record what they liked/disliked, and present how you modified your project based on their inputs.",
       deliverable: "A 'User Feedback Log' slide in your final presentation PPT.",
-      badgeColor: "border-[#00F0FF] text-[#00F0FF] bg-[#00F0FF]/5",
-      glowColor: "rgba(0,240,255,0.4)"
+      badgeColor: "border-[#00F0FF] text-[#00F0FF] bg-[#00F0FF]/5 hover:border-[#00F0FF]/50 shadow-[0_0_15px_rgba(0,240,255,0.02)]"
     },
     {
-      code: "CHALLENGE_2",
       title: "⚡ Challenge 2: The Monetization Blueprint (Business Model)",
       icon: "💰",
       task: "Define your target pricing model (SaaS subscription, transactional fee, freemium, etc.). Outline a unit economics scenario: if you had 1,000 active users, how much money would you make, and what would your server/API costs be?",
       deliverable: "A 'Revenue & Unit Economics' projection slide in your final presentation PPT.",
-      badgeColor: "border-green-400 text-green-400 bg-green-400/5",
-      glowColor: "rgba(74,222,128,0.4)"
+      badgeColor: "border-green-400 text-green-400 bg-green-400/5 hover:border-green-400/50 shadow-[0_0_15px_rgba(74,222,128,0.02)]"
     },
     {
-      code: "CHALLENGE_3",
       title: "🛡️ Challenge 3: The Technical Moat (Architectural Defense)",
       icon: "🛡️",
       task: "Draw a system architecture diagram. Explicitly show the security layers, data caching mechanisms (like Redis/local cache), and explain why a competitor cannot clone your app using simple API wrapper scrapers.",
       deliverable: "An 'Architecture & Technical Moat' slide with a diagram in your final presentation PPT.",
-      badgeColor: "border-neon-purple text-neon-purple bg-neon-purple/5",
-      glowColor: "rgba(217,70,239,0.4)"
+      badgeColor: "border-neon-purple text-neon-purple bg-neon-purple/5 hover:border-neon-purple/50 shadow-[0_0_15px_rgba(217,70,239,0.02)]"
     },
     {
-      code: "CHALLENGE_4",
       title: "🎨 Challenge 4: The Frictionless Experience (UI/UX Refactoring)",
       icon: "🎨",
       task: "Perform an audit of your app's onboarding/login flow. Reduce user steps to a maximum of 3 clicks. Ensure proper responsive layouts for mobile screens and clear error states.",
       deliverable: "A 1-minute video demo showing frictionless user journey (or a slide detailing UX fixes).",
-      badgeColor: "border-yellow-500 text-yellow-500 bg-yellow-500/5",
-      glowColor: "rgba(234,179,8,0.4)"
+      badgeColor: "border-yellow-500 text-yellow-500 bg-yellow-500/5 hover:border-yellow-500/50 shadow-[0_0_15px_rgba(234,179,8,0.02)]"
     },
     {
-      code: "CHALLENGE_5",
       title: "📈 Challenge 5: The Scalability Roadmap (6-Month Plan)",
       icon: "📈",
       task: "Write a step-by-step roadmap detailing how you would scale your app from 10 users to 10,000 users. What database optimizations, load balancing, or CDN layers would you introduce?",
       deliverable: "A 'Scale & Expansion Roadmap' timeline slide in your final presentation PPT.",
-      badgeColor: "border-orange-500 text-orange-500 bg-orange-500/5",
-      glowColor: "rgba(249,115,22,0.4)"
+      badgeColor: "border-orange-500 text-orange-500 bg-orange-500/5 hover:border-orange-500/50 shadow-[0_0_15px_rgba(249,115,22,0.02)]"
     },
     {
-      code: "CHALLENGE_6",
       title: "🎙️ Challenge 6: The Elevator Pitch & Demo Video (Storytelling)",
       icon: "🎙️",
       task: "Record a high-energy 2-minute video pitching your MVP. Focus 20% on the technology, and 80% on the core problem, user value proposition, and business vision.",
       deliverable: "A YouTube/Drive link to the 2-minute elevator pitch video in your submission form.",
-      badgeColor: "border-cyber-red text-cyber-red bg-cyber-red/5",
-      glowColor: "rgba(255,0,60,0.4)"
+      badgeColor: "border-cyber-red text-cyber-red bg-cyber-red/5 hover:border-cyber-red/50 shadow-[0_0_15px_rgba(255,0,60,0.02)]"
     }
   ];
-
-  const handleRetrieveChallenge = (e) => {
-    e.preventDefault();
-    if (!teamNameInput.trim()) return;
-
-    const name = teamNameInput.trim();
-    setSearchedTeam(name);
-
-    // Simple ASCII hash to allocate a challenge index from 0 to 5 equally
-    let hash = 0;
-    const cleanName = name.toLowerCase().replace(/\s+/g, "");
-    for (let i = 0; i < cleanName.length; i++) {
-      hash = cleanName.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const index = Math.abs(hash) % teamChallenges.length;
-    setAssignedChallenge(teamChallenges[index]);
-  };
-
-  const handleResetChallenge = () => {
-    setTeamNameInput("");
-    setSearchedTeam("");
-    setAssignedChallenge(null);
-  };
 
   return (
     <section className="py-24 px-6 relative bg-black/60 overflow-hidden min-h-screen flex flex-col items-center scanlines">
@@ -157,10 +116,10 @@ const Challenges = () => {
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            data-text="HACKVERSE CHALLENGE"
+            data-text="HACKVERSE CHALLENGES"
             className="glitch-text text-4xl md:text-6xl font-bold font-orbitron text-white mb-4 tracking-wider uppercase"
           >
-            CHALLENGE HUB
+            CHALLENGES
           </motion.h2>
           <div className="flex items-center justify-center gap-2 text-gray-400 text-xs md:text-sm font-mono">
             <div className="h-6 w-0.5 bg-neon-blue animate-pulse" />
@@ -260,7 +219,7 @@ const Challenges = () => {
                     <div>
                       <span className="text-[10px] font-mono text-neon-blue tracking-wider uppercase">// DATA_DECRYPTED_SUCCESSFUL</span>
                       <h3 className="text-white font-orbitron font-bold text-lg md:text-xl tracking-wider">
-                        MISSION BRIEFING: STARTUP CHALLENGES
+                        MISSION BRIEFING: STARTUP LEVEL-UP
                       </h3>
                     </div>
                   </div>
@@ -271,218 +230,90 @@ const Challenges = () => {
                   </div>
                 </div>
 
-                {/* Tab Switcher */}
-                <div className="flex border-b border-white/10 mb-8 gap-2">
-                  <button
-                    onClick={() => setActiveTab("directives")}
-                    className={`pb-4 px-4 font-orbitron font-bold text-xs md:text-sm tracking-wider transition-all duration-300 relative cursor-pointer outline-none ${
-                      activeTab === "directives"
-                        ? "text-neon-blue"
-                        : "text-gray-500 hover:text-white"
-                    }`}
-                  >
-                    01 // STARTUP DIRECTIVES
-                    {activeTab === "directives" && (
-                      <motion.div layoutId="challengeTabUnderline" className="absolute bottom-0 left-0 right-0 h-[2px] bg-neon-blue" />
-                    )}
-                  </button>
-                  <button
-                    onClick={() => setActiveTab("allocator")}
-                    className={`pb-4 px-4 font-orbitron font-bold text-xs md:text-sm tracking-wider transition-all duration-300 relative cursor-pointer outline-none ${
-                      activeTab === "allocator"
-                        ? "text-neon-blue"
-                        : "text-gray-500 hover:text-white"
-                    }`}
-                  >
-                    02 // TEAM CHALLENGE ALLOCATOR
-                    {activeTab === "allocator" && (
-                      <motion.div layoutId="challengeTabUnderline" className="absolute bottom-0 left-0 right-0 h-[2px] bg-neon-blue" />
-                    )}
-                  </button>
-                </div>
-
-                {/* Tab Content Display */}
+                {/* General directives */}
                 <div className="space-y-6 text-gray-300 font-mono text-xs md:text-sm leading-relaxed">
-                  <AnimatePresence mode="wait">
-                    {activeTab === "directives" ? (
-                      /* --- TAB 1: GENERAL STARTUP DIRECTIVES --- */
-                      <motion.div
-                        key="tab-directives"
-                        initial={{ opacity: 0, y: 5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -5 }}
-                        className="space-y-6"
+                  <div className="bg-white/5 border border-white/10 p-5 rounded-lg">
+                    <p className="font-bold text-white mb-2 flex items-center gap-2">
+                      <span className="text-neon-blue text-base">🚀</span> Hello Participants!
+                    </p>
+                    <p className="text-gray-400">
+                      We reviewed every single prototype, and ngl... the ideas were actually insane. 🔥 Big W to every team for the effort.
+                    </p>
+                    <p className="text-white font-bold mt-3">
+                      But now it's time to <span className="text-neon-blue border-b border-neon-blue/30 pb-0.5">level up. 💯</span>
+                    </p>
+                  </div>
+
+                  <p className="text-center font-bold text-white text-sm md:text-base border border-dashed border-neon-purple/30 bg-neon-purple/5 p-4 rounded-lg">
+                    We don't want just another hackathon project anymore—we want you to build a <span className="text-neon-purple text-glow font-orbitron font-black uppercase">startup</span>. Think bigger. Think product. Think scale.
+                  </p>
+
+                  <h4 className="text-xs font-orbitron font-bold text-neon-blue mt-8 mb-4 uppercase tracking-wider flex items-center gap-2">
+                    ⚡ DIRECTIVE: UPGRADE PROTOCOLS BASED ON THESE CRITERIA:
+                  </h4>
+
+                  {/* Criteria Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {criteria.map((c, idx) => (
+                      <div 
+                        key={idx} 
+                        className="bg-black/50 border border-white/5 hover:border-neon-blue/40 p-4 rounded-lg flex gap-4 transition-all duration-300"
                       >
-                        <div className="bg-white/5 border border-white/10 p-5 rounded-lg">
-                          <p className="font-bold text-white mb-2 flex items-center gap-2">
-                            <span className="text-neon-blue text-base">🚀</span> Hello Participants!
-                          </p>
-                          <p className="text-gray-400">
-                            We reviewed every single prototype, and ngl... the ideas were actually insane. 🔥 Big W to every team for the effort.
-                          </p>
-                          <p className="text-white font-bold mt-3">
-                            But now it's time to <span className="text-neon-blue border-b border-neon-blue/30 pb-0.5">level up. 💯</span>
-                          </p>
+                        <div className="shrink-0 p-2 bg-white/5 rounded border border-white/5 flex items-center justify-center self-start">
+                          {c.icon}
                         </div>
-
-                        <p className="text-center font-bold text-white text-sm md:text-base border border-dashed border-neon-purple/30 bg-neon-purple/5 p-4 rounded-lg">
-                          We don't want just another hackathon project anymore—we want you to build a <span className="text-neon-purple text-glow font-orbitron font-black uppercase">startup</span>. Think bigger. Think product. Think scale.
-                        </p>
-
-                        <h4 className="text-xs font-orbitron font-bold text-neon-blue mt-8 mb-4 uppercase tracking-wider">
-                          ⚡ CRITERIA LIST:
-                        </h4>
-
-                        {/* Criteria Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {criteria.map((c, idx) => (
-                            <div 
-                              key={idx} 
-                              className="bg-black/50 border border-white/5 hover:border-neon-blue/40 p-4 rounded-lg flex gap-4 transition-all duration-300"
-                            >
-                              <div className="shrink-0 p-2 bg-white/5 rounded border border-white/5 flex items-center justify-center self-start">
-                                {c.icon}
-                              </div>
-                              <div>
-                                <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-0.5">// {c.tag}</span>
-                                <strong className="text-white font-orbitron text-xs md:text-sm block mb-1">{c.title}</strong>
-                                <p className="text-gray-400 text-xs leading-relaxed">{c.description}</p>
-                              </div>
-                            </div>
-                          ))}
+                        <div>
+                          <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-0.5">// {c.tag}</span>
+                          <strong className="text-white font-orbitron text-xs md:text-sm block mb-1">{c.title}</strong>
+                          <p className="text-gray-400 text-xs leading-relaxed">{c.description}</p>
                         </div>
+                      </div>
+                    ))}
+                  </div>
 
-                        {/* Bonus Objectives */}
-                        <div className="border border-yellow-500/20 bg-yellow-500/5 p-5 rounded-lg mt-6">
-                          <h5 className="text-xs font-orbitron font-bold text-yellow-500 mb-3 tracking-widest uppercase flex items-center gap-2">
-                            ⭐ BONUS POINTS CRITERIA
+                  {/* Bonus Points */}
+                  <div className="border border-yellow-500/20 bg-yellow-500/5 p-5 rounded-lg mt-6">
+                    <h5 className="text-xs font-orbitron font-bold text-yellow-500 mb-3 tracking-widest uppercase flex items-center gap-2">
+                      ⭐ BONUS POINTS CRITERIA
+                    </h5>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {bonuses.map((bonus, bIdx) => (
+                        <div key={bIdx} className="flex items-center gap-2.5 text-xs bg-black/40 p-2.5 rounded border border-white/5">
+                          <Check size={14} className="text-green-400 shrink-0" />
+                          <span className="text-gray-300">{bonus}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Complete Challenge Catalog */}
+                  <div className="border border-white/10 bg-black/40 p-5 rounded-lg mt-12">
+                    <h4 className="text-xs font-orbitron font-bold text-white mb-2 uppercase tracking-wider flex items-center gap-2">
+                      <Star size={14} className="text-neon-purple animate-pulse" /> HACKVERSE TEAM CHALLENGES
+                    </h4>
+                    <p className="text-gray-400 text-xs mb-6 font-mono leading-relaxed">
+                      Upgrade your project further by aligning with at least one of the following challenges. Incorporate your chosen challenge deliverables into your final demo and pitch:
+                    </p>
+
+                    <div className="grid grid-cols-1 gap-4">
+                      {teamChallenges.map((tc, tcIdx) => (
+                        <div 
+                          key={tcIdx}
+                          className={`border rounded-lg p-5 bg-black/40 transition-all duration-300 hover:bg-black/60 ${tc.badgeColor}`}
+                        >
+                          <h5 className="font-orbitron font-bold text-white text-xs md:text-sm mb-2 flex items-center gap-2">
+                            <span className="text-base">{tc.icon}</span>
+                            {tc.title}
                           </h5>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {bonuses.map((bonus, bIdx) => (
-                              <div key={bIdx} className="flex items-center gap-2.5 text-xs bg-black/40 p-2.5 rounded border border-white/5">
-                                <Check size={14} className="text-green-400 shrink-0" />
-                                <span className="text-gray-300">{bonus}</span>
-                              </div>
-                            ))}
+                          <p className="text-gray-400 text-xs mb-3 font-mono leading-relaxed">{tc.task}</p>
+                          <div className="text-[11px] font-mono text-gray-300 bg-white/5 px-3 py-1.5 rounded border border-white/5">
+                            <span className="font-bold text-white">Deliverable: </span> {tc.deliverable}
                           </div>
                         </div>
-                      </motion.div>
-                    ) : (
-                      /* --- TAB 2: INTERACTIVE TEAM CHALLENGE ALLOCATOR --- */
-                      <motion.div
-                        key="tab-allocator"
-                        initial={{ opacity: 0, y: 5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -5 }}
-                        className="space-y-6"
-                      >
-                        <div className="bg-white/5 border border-white/10 p-5 rounded-lg">
-                          <h4 className="font-orbitron font-bold text-white text-sm mb-2 flex items-center gap-2">
-                            🧬 EQUAL DISTRIBUTION PROTOCOL
-                          </h4>
-                          <p className="text-gray-400 text-xs leading-relaxed">
-                            To ensure absolute fairness, every team is assigned a dedicated challenge. 
-                            Type your **Team Name** below to retrieve your specific mission briefing. 
-                            All 6 challenges carry equal weight during final judging.
-                          </p>
-                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-                        {/* Search Input Box */}
-                        <form onSubmit={handleRetrieveChallenge} className="flex flex-col sm:flex-row gap-3">
-                          <div className="relative flex-1">
-                            <input
-                              type="text"
-                              required
-                              value={teamNameInput}
-                              onChange={(e) => setTeamNameInput(e.target.value)}
-                              placeholder="ENTER YOUR REGISTERED TEAM NAME..."
-                              className="w-full bg-black/60 border border-white/10 hover:border-white/20 focus:border-neon-blue text-white px-4 py-3.5 pl-11 rounded font-mono text-xs uppercase tracking-wider outline-none transition-all"
-                            />
-                            <Search size={16} className="absolute left-4 top-4 text-gray-500" />
-                          </div>
-                          <button
-                            type="submit"
-                            className="bg-neon-blue text-black font-orbitron font-bold text-xs uppercase tracking-widest px-6 py-3.5 hover:bg-white hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all cursor-pointer rounded"
-                          >
-                            ALLOCATE MISSION
-                          </button>
-                        </form>
-
-                        {/* Assigned Challenge Box */}
-                        <AnimatePresence mode="wait">
-                          {assignedChallenge && (
-                            <motion.div
-                              initial={{ opacity: 0, scale: 0.98 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              exit={{ opacity: 0, scale: 0.98 }}
-                              className="border-2 border-[#00F0FF] bg-[#00F0FF]/5 p-6 rounded-xl relative overflow-hidden"
-                              style={{ boxShadow: `0 0 25px ${assignedChallenge.glowColor}` }}
-                            >
-                              <div className="absolute top-0 right-0 p-4 font-mono text-[9px] text-[#00F0FF] uppercase tracking-wider">
-                                // ALLOCATION_STABLE
-                              </div>
-
-                              <span className="text-[10px] font-mono font-bold text-[#00F0FF] border border-[#00F0FF] bg-[#00F0FF]/10 px-2 py-0.5 rounded tracking-widest uppercase block w-max mb-3">
-                                {assignedChallenge.code}
-                              </span>
-
-                              <h3 className="text-white font-orbitron font-bold text-sm md:text-base mb-3 flex items-center gap-2">
-                                <span className="text-xl">{assignedChallenge.icon}</span>
-                                {assignedChallenge.title}
-                              </h3>
-
-                              <div className="bg-black/60 border border-white/5 p-4 rounded mb-4 font-mono text-xs leading-relaxed">
-                                <span className="text-[#00F0FF] font-bold block mb-1">TASK DIRECTIVE:</span>
-                                <p className="text-gray-300">{assignedChallenge.task}</p>
-                              </div>
-
-                              <div className="bg-black/60 border-l-2 border-green-500 p-4 rounded font-mono text-xs leading-relaxed">
-                                <span className="text-green-400 font-bold block mb-1">REQUIRED DELIVERABLE:</span>
-                                <p className="text-gray-300">{assignedChallenge.deliverable}</p>
-                              </div>
-
-                              <div className="mt-5 flex justify-between items-center">
-                                <p className="text-[10px] text-gray-500 uppercase">
-                                  Assigned to: <span className="text-white font-bold">{searchedTeam}</span>
-                                </p>
-                                <button
-                                  onClick={handleResetChallenge}
-                                  className="text-[10px] text-gray-400 hover:text-white flex items-center gap-1 font-mono uppercase"
-                                >
-                                  <RefreshCw size={10} className="animate-spin" /> Clear
-                                </button>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-
-                        {/* Complete Challenge Catalog */}
-                        <div className="border border-white/5 bg-black/40 p-5 rounded-lg mt-8">
-                          <h4 className="text-xs font-orbitron font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-2">
-                            <Star size={14} className="text-neon-purple animate-pulse" /> COMPLETE CHALLENGES CATALOG (6 TOTAL)
-                          </h4>
-
-                          <div className="grid grid-cols-1 gap-4">
-                            {teamChallenges.map((tc, tcIdx) => (
-                              <div 
-                                key={tcIdx}
-                                className={`border rounded-lg p-4 bg-black/40 hover:bg-black/60 transition-colors duration-300 ${tc.badgeColor}`}
-                              >
-                                <h5 className="font-orbitron font-bold text-white text-xs md:text-sm mb-2 flex items-center gap-2">
-                                  <span className="text-base">{tc.icon}</span>
-                                  {tc.title}
-                                </h5>
-                                <p className="text-gray-400 text-xs mb-3 font-mono leading-relaxed">{tc.task}</p>
-                                <div className="text-[11px] font-mono text-gray-300 bg-white/5 px-3 py-1.5 rounded border border-white/5">
-                                  <span className="font-bold text-white">Deliverable: </span> {tc.deliverable}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
 
                 {/* Final Glowing CTA Outro */}
