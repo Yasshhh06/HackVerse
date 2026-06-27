@@ -68,14 +68,14 @@ const Hero = () => {
         className="relative z-10 mb-6 max-w-xl px-4"
       >
         <Link 
-          to="/updates" 
-          className="inline-flex items-center gap-3 bg-neon-blue/10 hover:bg-neon-blue/20 border border-neon-blue/50 px-4 py-2.5 rounded text-xs md:text-sm font-mono text-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.25)] hover:shadow-[0_0_25px_rgba(0,240,255,0.45)] group cursor-pointer"
+          to="/challenges" 
+          className="inline-flex items-center gap-3 bg-neon-purple/10 hover:bg-neon-purple/20 border border-neon-purple/50 px-4 py-2.5 rounded text-xs md:text-sm font-mono text-white transition-all shadow-[0_0_15px_rgba(217,70,239,0.25)] hover:shadow-[0_0_25px_rgba(217,70,239,0.45)] group cursor-pointer"
         >
-          <span className="bg-neon-blue px-1.5 py-0.5 rounded text-[10px] font-bold text-black uppercase tracking-wider animate-pulse">LATEST UPDATE</span>
+          <span className="bg-neon-purple px-1.5 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider animate-pulse">CHALLENGES LIVE</span>
           <span className="tracking-wide text-gray-200 group-hover:text-white transition-colors text-left">
-            🚀 HACKVERSE 2026 – Official Virtual Hackathon Timeline is Live!
+            🔥 HACKVERSE 2026 Startup Level-up Challenges are Live! Decrypt directives.
           </span>
-          <ArrowRight size={14} className="text-neon-blue group-hover:translate-x-1 transition-transform shrink-0" />
+          <ArrowRight size={14} className="text-neon-purple group-hover:translate-x-1 transition-transform shrink-0" />
         </Link>
       </motion.div>
 
