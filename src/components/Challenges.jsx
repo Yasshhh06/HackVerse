@@ -56,8 +56,8 @@ const Challenges = () => {
 
   const teamChallenges = [
     {
-      code: "CHALLENGE_ALPHA",
-      title: "🔒 Challenge Alpha: The Validation Hack (Market Validation)",
+      code: "CHALLENGE_1",
+      title: "🔒 Challenge 1: The Validation Hack (Market Validation)",
       icon: "🔍",
       task: "Pitch your prototype to 3-5 random people (or potential users online) who are not developers. Get their raw feedback, record what they liked/disliked, and present how you modified your project based on their inputs.",
       deliverable: "A 'User Feedback Log' slide in your final presentation PPT.",
@@ -65,8 +65,8 @@ const Challenges = () => {
       glowColor: "rgba(0,240,255,0.4)"
     },
     {
-      code: "CHALLENGE_BETA",
-      title: "⚡ Challenge Beta: The Monetization Blueprint (Business Model)",
+      code: "CHALLENGE_2",
+      title: "⚡ Challenge 2: The Monetization Blueprint (Business Model)",
       icon: "💰",
       task: "Define your target pricing model (SaaS subscription, transactional fee, freemium, etc.). Outline a unit economics scenario: if you had 1,000 active users, how much money would you make, and what would your server/API costs be?",
       deliverable: "A 'Revenue & Unit Economics' projection slide in your final presentation PPT.",
@@ -74,8 +74,8 @@ const Challenges = () => {
       glowColor: "rgba(74,222,128,0.4)"
     },
     {
-      code: "CHALLENGE_GAMMA",
-      title: "🛡️ Challenge Gamma: The Technical Moat (Architectural Defense)",
+      code: "CHALLENGE_3",
+      title: "🛡️ Challenge 3: The Technical Moat (Architectural Defense)",
       icon: "🛡️",
       task: "Draw a system architecture diagram. Explicitly show the security layers, data caching mechanisms (like Redis/local cache), and explain why a competitor cannot clone your app using simple API wrapper scrapers.",
       deliverable: "An 'Architecture & Technical Moat' slide with a diagram in your final presentation PPT.",
@@ -83,8 +83,8 @@ const Challenges = () => {
       glowColor: "rgba(217,70,239,0.4)"
     },
     {
-      code: "CHALLENGE_DELTA",
-      title: "🎨 Challenge Delta: The Frictionless Experience (UI/UX Refactoring)",
+      code: "CHALLENGE_4",
+      title: "🎨 Challenge 4: The Frictionless Experience (UI/UX Refactoring)",
       icon: "🎨",
       task: "Perform an audit of your app's onboarding/login flow. Reduce user steps to a maximum of 3 clicks. Ensure proper responsive layouts for mobile screens and clear error states.",
       deliverable: "A 1-minute video demo showing frictionless user journey (or a slide detailing UX fixes).",
@@ -92,8 +92,8 @@ const Challenges = () => {
       glowColor: "rgba(234,179,8,0.4)"
     },
     {
-      code: "CHALLENGE_EPSILON",
-      title: "📈 Challenge Epsilon: The Scalability Roadmap (6-Month Plan)",
+      code: "CHALLENGE_5",
+      title: "📈 Challenge 5: The Scalability Roadmap (6-Month Plan)",
       icon: "📈",
       task: "Write a step-by-step roadmap detailing how you would scale your app from 10 users to 10,000 users. What database optimizations, load balancing, or CDN layers would you introduce?",
       deliverable: "A 'Scale & Expansion Roadmap' timeline slide in your final presentation PPT.",
@@ -101,8 +101,8 @@ const Challenges = () => {
       glowColor: "rgba(249,115,22,0.4)"
     },
     {
-      code: "CHALLENGE_ZETA",
-      title: "🎙️ Challenge Zeta: The Elevator Pitch & Demo Video (Storytelling)",
+      code: "CHALLENGE_6",
+      title: "🎙️ Challenge 6: The Elevator Pitch & Demo Video (Storytelling)",
       icon: "🎙️",
       task: "Record a high-energy 2-minute video pitching your MVP. Focus 20% on the technology, and 80% on the core problem, user value proposition, and business vision.",
       deliverable: "A YouTube/Drive link to the 2-minute elevator pitch video in your submission form.",
