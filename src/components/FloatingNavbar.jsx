@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Home, MapPin, X, Send, Bell, ClipboardCheck } from "lucide-react";
+import { Plus, Home, MapPin, X, Send, Bell, ClipboardCheck, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FloatingNavbar = () => {
@@ -23,6 +23,7 @@ const FloatingNavbar = () => {
       to: "/updates",
       onClick: () => setHasNewUpdate(false)
     },
+    { name: "Challenges", icon: <Trophy size={20} />, to: "/challenges" },
     { name: "Venue", icon: <MapPin size={20} />, to: "/venue" },
     { name: "Home", icon: <Home size={20} />, to: "/" }, // Bottom (closest to button)
   ];
