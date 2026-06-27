@@ -1,11 +1,70 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Lock, Unlock, Sparkles, TrendingUp, DollarSign, Zap, Check, Users, Layers, Star, Award, FileText } from "lucide-react";
+import { ArrowLeft, Lock, Unlock, Sparkles, TrendingUp, DollarSign, Zap, Check, Users, Layers, Star, Award, FileText, ChevronDown } from "lucide-react";
+
+const rubricData = [
+  {
+    id: 1,
+    title: "Problem-Solution Fit",
+    subtitle: "(Replaces Innovation)",
+    weight: 20,
+    tiers: {
+      investable: { pts: "17-20 pts", desc: "Addresses an urgent, validated pain point. The solution fits the market perfectly, backed by data." },
+      indubitable: { pts: "9-16 pts", desc: "Real problem, but the solution feels forced. No user validation shown." },
+      pass: { pts: "0-8 pts", desc: "A 'solution looking for a problem.' Cool tech, but no real-world demand." }
+    }
+  },
+  {
+    id: 2,
+    title: "Business Model & Revenue",
+    subtitle: "(Replaces Impact)",
+    weight: 20,
+    tiers: {
+      investable: { pts: "17-20 pts", desc: "Clear path to making money (B2B/B2C). Knows competitors & why they win. Sustainable." },
+      indubitable: { pts: "9-16 pts", desc: "Vague revenue plan ('We will sell ads'). Good product, but unclear who pays for it." },
+      pass: { pts: "0-8 pts", desc: "No business sense. Purely a hobby project with zero financial viability." }
+    }
+  },
+  {
+    id: 3,
+    title: "Tech Scalability & Moat",
+    subtitle: "(Replaces Technical)",
+    weight: 20,
+    tiers: {
+      investable: { pts: "17-20 pts", desc: "Built for 1M+ users. Has a 'Moat' (unique tech/IP that is hard to copy). Secure and robust." },
+      indubitable: { pts: "9-16 pts", desc: "Works for demo, but breaks at scale. Uses standard APIs anyone can copy." },
+      pass: { pts: "0-8 pts", desc: "Fragile architecture. Security risks. Just a wrapper around ChatGPT." }
+    }
+  },
+  {
+    id: 4,
+    title: "Product Readiness (MVP)",
+    subtitle: "(Replaces UI/UX)",
+    weight: 20,
+    tiers: {
+      investable: { pts: "17-20 pts", desc: "Ready to launch tomorrow. 'Shippable' quality. Feature set is focused and complete." },
+      indubitable: { pts: "9-16 pts", desc: "Good prototype, but needs 3 months of work to be usable. Buggy edge cases." },
+      pass: { pts: "0-8 pts", desc: "Still feels like a wireframe. Critical features are missing." }
+    }
+  },
+  {
+    id: 5,
+    title: "Founding Team Dynamics",
+    subtitle: "(Replaces Teamwork)",
+    weight: 20,
+    tiers: {
+      investable: { pts: "17-20 pts", desc: "Strong 'Founder' vibes. CEO/CTO roles are clear. Dominated the Q&A together." },
+      indubitable: { pts: "9-16 pts", desc: "One person carried the team. Good effort, but lacks role clarity." },
+      pass: { pts: "0-8 pts", desc: "Disjointed. Arguments during Q&A. Low energy or lack of confidence." }
+    }
+  }
+];
 
 const Challenges = () => {
   const [isDecrypted, setIsDecrypted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [showRubric, setShowRubric] = useState(false);
 
   const criteria = [
     {
@@ -284,6 +343,87 @@ const Challenges = () => {
                         </div>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Rubric Scorecard Section */}
+                  <div className="border border-neon-blue/20 bg-black/45 p-5 rounded-lg mt-6 shadow-[0_0_20px_rgba(0,240,255,0.02)]">
+                    <button
+                      onClick={() => setShowRubric(!showRubric)}
+                      className="w-full flex items-center justify-between text-left font-orbitron font-bold text-white text-xs md:text-sm uppercase tracking-wider hover:text-neon-blue transition-colors group cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Award size={16} className="text-neon-blue animate-pulse" /> 
+                        GRAND FINALE SCORECARD | HACKVERSE RUBRIC
+                      </span>
+                      <motion.div
+                        animate={{ rotate: showRubric ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ChevronDown size={18} className="text-gray-400 group-hover:text-neon-blue" />
+                      </motion.div>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {showRubric && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          className="overflow-hidden mt-4"
+                        >
+                          <div className="text-gray-400 text-xs font-mono mb-4 border-l-2 border-neon-blue/50 pl-3">
+                            Focus on Viability, Scale, and the Team's ability to execute. Scroll horizontally to view full details.
+                          </div>
+                          
+                          <div className="overflow-x-auto border border-white/10 rounded-lg bg-black/60 scrollbar-hide">
+                            <table className="w-full text-left border-collapse font-mono text-[11px] md:text-xs min-w-[750px]">
+                              <thead>
+                                <tr className="border-b border-white/10 bg-white/5 text-white font-orbitron font-bold">
+                                  <th className="p-3 w-[20%]">Criteria</th>
+                                  <th className="p-3 w-[8%] text-center">Weight</th>
+                                  <th className="p-3 w-[24%] text-green-400/90">Investable (Top 3)</th>
+                                  <th className="p-3 w-[24%] text-yellow-400/90">Indubitable (Good)</th>
+                                  <th className="p-3 w-[24%] text-cyber-red/90 font-semibold">Pass (Not Ready)</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {rubricData.map((row) => (
+                                  <tr key={row.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                                    <td className="p-3 font-orbitron font-semibold text-white">
+                                      <div className="text-xs md:text-sm text-neon-blue">{row.id}. {row.title}</div>
+                                      <div className="text-[10px] text-gray-500 font-mono mt-0.5">{row.subtitle}</div>
+                                    </td>
+                                    <td className="p-3 text-center text-white font-bold text-xs md:text-sm bg-white/2">{row.weight}</td>
+                                    <td className="p-3 border-l border-white/5">
+                                      <span className="inline-block text-[10px] px-2 py-0.5 rounded font-bold bg-green-500/10 text-green-400 border border-green-500/20 mb-2">
+                                        {row.tiers.investable.pts}
+                                      </span>
+                                      <p className="text-gray-300 leading-relaxed text-[11px]">{row.tiers.investable.desc}</p>
+                                    </td>
+                                    <td className="p-3 border-l border-white/5">
+                                      <span className="inline-block text-[10px] px-2 py-0.5 rounded font-bold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 mb-2">
+                                        {row.tiers.indubitable.pts}
+                                      </span>
+                                      <p className="text-gray-300 leading-relaxed text-[11px]">{row.tiers.indubitable.desc}</p>
+                                    </td>
+                                    <td className="p-3 border-l border-white/5">
+                                      <span className="inline-block text-[10px] px-2 py-0.5 rounded font-bold bg-cyber-red/10 text-cyber-red/80 border border-cyber-red/20 mb-2">
+                                        {row.tiers.pass.pts}
+                                      </span>
+                                      <p className="text-gray-300 leading-relaxed text-[11px]">{row.tiers.pass.desc}</p>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                          <div className="text-[10px] text-gray-500 font-mono mt-3 text-right">
+                            * Criteria replace corresponding legacy categories of Innovation, Impact, Technical, UI/UX, and Teamwork.
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* Complete Challenge Catalog */}
