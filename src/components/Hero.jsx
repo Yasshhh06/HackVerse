@@ -68,14 +68,14 @@ const Hero = () => {
         className="relative z-10 mb-6 max-w-xl px-4"
       >
         <Link 
-          to="/registration?tab=rsvp" 
-          className="inline-flex items-center gap-3 bg-cyber-red/10 hover:bg-cyber-red/20 border border-cyber-red/50 px-4 py-2.5 rounded text-xs md:text-sm font-mono text-white transition-all shadow-[0_0_15px_rgba(255,0,60,0.25)] hover:shadow-[0_0_25px_rgba(255,0,60,0.45)] group cursor-pointer"
+          to="/updates" 
+          className="inline-flex items-center gap-3 bg-neon-blue/10 hover:bg-neon-blue/20 border border-neon-blue/50 px-4 py-2.5 rounded text-xs md:text-sm font-mono text-white transition-all shadow-[0_0_15px_rgba(0,240,255,0.25)] hover:shadow-[0_0_25px_rgba(0,240,255,0.45)] group cursor-pointer"
         >
-          <span className="bg-cyber-red px-1.5 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider animate-pulse">ACTION REQUIRED</span>
+          <span className="bg-neon-blue px-1.5 py-0.5 rounded text-[10px] font-bold text-black uppercase tracking-wider animate-pulse">LATEST UPDATE</span>
           <span className="tracking-wide text-gray-200 group-hover:text-white transition-colors text-left">
-            🚨 Submit Final RSVP for HackVerse Online by 25th June, 12:00 PM.
+            🚀 HACKVERSE 2026 – Official Virtual Hackathon Timeline is Live!
           </span>
-          <ArrowRight size={14} className="text-cyber-red group-hover:translate-x-1 transition-transform shrink-0" />
+          <ArrowRight size={14} className="text-neon-blue group-hover:translate-x-1 transition-transform shrink-0" />
         </Link>
       </motion.div>
 

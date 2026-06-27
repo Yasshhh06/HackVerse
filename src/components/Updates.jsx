@@ -1,9 +1,267 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Bell, Calendar, Clock, AlertTriangle, Monitor, Award, Briefcase, ChevronRight, Check } from "lucide-react";
+import { ArrowLeft, Bell, Calendar, Clock, AlertTriangle, Monitor, Award, Briefcase, ChevronRight, Check, Sparkles, Trophy, ShieldAlert, Upload, Users } from "lucide-react";
 
 const Updates = () => {
   const announcements = [
+    {
+      id: "announcement-2",
+      date: "27 June 2026",
+      time: "9:10 pm",
+      title: "🚀 HACKVERSE 2026 – Official Virtual Hackathon Timeline",
+      subtitle: "Official Hackathon Schedule & Guidelines",
+      tag: "TIMELINE PROTOCOL",
+      content: (
+        <div className="space-y-8 text-gray-300 font-mono text-xs md:text-sm leading-relaxed">
+          {/* Header Stats */}
+          <div className="border border-[#00F0FF]/30 bg-[#00F0FF]/5 p-5 rounded-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle,rgba(0,240,255,0.1),transparent_70%)] pointer-events-none" />
+            <h4 className="text-xs font-orbitron font-bold text-[#00F0FF] mb-4 flex items-center gap-2">
+              📊 EVENT SPECIFICATIONS
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div className="bg-black/40 p-3 rounded border border-white/5 flex items-center gap-3">
+                <Calendar size={18} className="text-[#00F0FF] shrink-0" />
+                <div>
+                  <span className="text-gray-500 block text-[10px]">DATE</span>
+                  <span className="text-white font-bold font-orbitron">28 June 2026 (Sunday)</span>
+                </div>
+              </div>
+              <div className="bg-black/40 p-3 rounded border border-white/5 flex items-center gap-3">
+                <Monitor size={18} className="text-neon-purple shrink-0" />
+                <div>
+                  <span className="text-gray-500 block text-[10px]">MODE</span>
+                  <span className="text-white font-bold font-orbitron text-[#00F0FF]">Virtual (Online)</span>
+                </div>
+              </div>
+              <div className="bg-black/40 p-3 rounded border border-white/5 flex items-center gap-3">
+                <Award size={18} className="text-green-400 shrink-0" />
+                <div>
+                  <span className="text-gray-500 block text-[10px]">PRIZE POOL</span>
+                  <span className="text-white font-bold font-orbitron text-green-400">₹1,00,000+ (Cash + Kind)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline Section */}
+          <div className="space-y-6 relative before:absolute before:inset-0 before:left-[15px] before:right-auto before:w-[2px] before:bg-white/5">
+            
+            {/* Timeline Item 1: Challenge Reveal */}
+            <div className="relative pl-10 group">
+              <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-black border-2 border-[#00F0FF] flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_8px_rgba(0,240,255,0.5)]">
+                <Sparkles size={14} className="text-[#00F0FF]" />
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5 rounded-lg group-hover:border-[#00F0FF]/30 transition-all duration-300">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold text-[#00F0FF] bg-[#00F0FF]/10 px-2 py-0.5 rounded font-orbitron">3:00 AM IST</span>
+                  <span className="text-white font-orbitron font-bold">Challenge Reveal</span>
+                </div>
+                <p className="text-xs text-gray-400">The official HACKVERSE challenge will be released.</p>
+                <div className="mt-3 flex items-start gap-2 text-xs text-[#00F0FF]/80 bg-[#00F0FF]/5 p-3 rounded border border-[#00F0FF]/10">
+                  <span className="shrink-0">📌</span>
+                  <p>All registered teams can access the challenge through the official communication channels.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Timeline Item 2: Build Phase */}
+            <div className="relative pl-10 group">
+              <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-black border-2 border-neon-purple flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_8px_rgba(186,85,211,0.5)]">
+                <Clock size={14} className="text-neon-purple" />
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5 rounded-lg group-hover:border-neon-purple/30 transition-all duration-300">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold text-neon-purple bg-neon-purple/10 px-2 py-0.5 rounded font-orbitron">3:00 AM – 2:00 PM IST</span>
+                  <span className="text-white font-orbitron font-bold">Build Phase (11 Hours)</span>
+                </div>
+                <p className="text-xs text-gray-400 mb-4">This is your dedicated development window. During this time, teams should:</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4">
+                  {[
+                    "Build and complete the assigned challenge",
+                    "Improve and finalize their solution",
+                    "Push all code to GitHub",
+                    "Test the application thoroughly",
+                    "Prepare the final presentation (PPT)",
+                    "Record a demo video (optional but recommended)"
+                  ].map((task, tIdx) => (
+                    <div key={tIdx} className="flex items-center gap-2 text-xs bg-black/30 p-2 rounded border border-white/5">
+                      <Check size={12} className="text-green-400 shrink-0" />
+                      <span className="text-gray-300">{task}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-start gap-2 text-xs text-yellow-500 bg-yellow-500/5 p-3 rounded border border-yellow-500/10">
+                  <AlertTriangle size={14} className="text-yellow-500 shrink-0" />
+                  <p>Teams are free to manage their own schedule during the build phase, but all work must be completed before the submission deadline.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Timeline Item 3: Development Ends */}
+            <div className="relative pl-10 group">
+              <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-black border-2 border-cyber-red flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_8px_rgba(255,0,60,0.5)]">
+                <ShieldAlert size={14} className="text-cyber-red" />
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5 rounded-lg group-hover:border-cyber-red/30 transition-all duration-300">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold text-cyber-red bg-cyber-red/10 px-2 py-0.5 rounded font-orbitron">2:00 PM IST</span>
+                  <span className="text-white font-orbitron font-bold">Development Ends</span>
+                </div>
+                <div className="flex items-start gap-3 text-xs bg-cyber-red/5 p-3 rounded border border-cyber-red/20 text-gray-300">
+                  <span className="text-cyber-red text-base font-bold shrink-0">🚫</span>
+                  <div>
+                    <strong className="text-white block mb-1">No further development is recommended after this time.</strong>
+                    <p className="text-gray-400">Please make sure your project is ready for submission.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Timeline Item 4: Final Project Submission */}
+            <div className="relative pl-10 group">
+              <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-black border-2 border-yellow-500 flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_8px_rgba(234,179,8,0.5)]">
+                <Upload size={14} className="text-yellow-500" />
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5 rounded-lg group-hover:border-yellow-500/30 transition-all duration-300">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded font-orbitron">2:15 PM IST</span>
+                  <span className="text-white font-orbitron font-bold">Final Project Submission</span>
+                </div>
+                <p className="text-xs text-gray-400 mb-3">Every Team Leader must submit the Final Submission Form. The submission must include:</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3">
+                  {[
+                    "GitHub Repository Link",
+                    "Project Presentation (PPT/PDF)",
+                    "Live Demo / Deployment Link (if available)",
+                    "Demo Video (Optional)",
+                    "Project Description",
+                    "Technology Stack Used"
+                  ].map((sub, sIdx) => (
+                    <div key={sIdx} className="flex items-center gap-2 text-xs bg-black/30 p-2 rounded border border-white/5">
+                      <span className="text-[#00F0FF] shrink-0">📌</span>
+                      <span className="text-gray-300">{sub}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-start gap-2 text-xs text-cyber-red bg-cyber-red/5 p-3 rounded border border-cyber-red/20 font-bold">
+                  <AlertTriangle size={14} className="text-cyber-red shrink-0" />
+                  <p>Late submissions will NOT be accepted.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Timeline Item 5: Final Judging Round Begins */}
+            <div className="relative pl-10 group">
+              <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-black border-2 border-emerald-500 flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_8px_rgba(16,185,129,0.5)]">
+                <Users size={14} className="text-emerald-500" />
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5 rounded-lg group-hover:border-emerald-500/30 transition-all duration-300">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded font-orbitron">3:00 PM IST</span>
+                  <span className="text-white font-orbitron font-bold">Final Judging Round Begins</span>
+                </div>
+                <p className="text-xs text-gray-400 mb-4">Each team will receive approximately <strong className="text-white">6 minutes</strong>.</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  {/* Presentation Format */}
+                  <div className="bg-black/40 p-3 rounded border border-white/5">
+                    <h5 className="text-[11px] font-orbitron font-bold text-emerald-400 mb-2 uppercase tracking-wider">// Presentation Format</h5>
+                    <div className="space-y-2 text-xs">
+                      <div className="flex items-start gap-2">
+                        <span className="text-emerald-400 font-bold shrink-0">🎤 4 Min:</span>
+                        <span className="text-gray-300">Problem Statement, Solution Overview, Live Demo</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-neon-purple font-bold shrink-0">❓ 2 Min:</span>
+                        <span className="text-gray-300">Judges' Q&A, Technical Discussion, Feedback</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Evaluation Criteria */}
+                  <div className="bg-black/40 p-3 rounded border border-white/5">
+                    <h5 className="text-[11px] font-orbitron font-bold text-emerald-400 mb-2 uppercase tracking-wider">// Evaluation Criteria</h5>
+                    <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-gray-400">
+                      <span>🏆 Innovation</span>
+                      <span>⚙️ Technical Impl.</span>
+                      <span>🎨 UI/UX Design</span>
+                      <span>🤖 AI Integration</span>
+                      <span>📈 Scalability</span>
+                      <span>🎙️ Presentation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Timeline Item 6: Winner Announcement */}
+            <div className="relative pl-10 group">
+              <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-black border-2 border-yellow-400 flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_8px_rgba(250,204,21,0.5)]">
+                <Trophy size={14} className="text-yellow-400" />
+              </div>
+              <div className="bg-white/5 border border-white/10 p-5 rounded-lg group-hover:border-yellow-400/30 transition-all duration-300">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold text-yellow-400 bg-yellow-400/10 px-2 py-0.5 rounded font-orbitron">12:00 AM IST (29 June)</span>
+                  <span className="text-white font-orbitron font-bold">Winner Announcement</span>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-3">
+                  {[
+                    "🏆 Top Teams",
+                    "🥇 Prize Details",
+                    "🎖️ Certificates",
+                    "💼 Internships",
+                    "🎉 Closing Ceremony"
+                  ].map((w, wIdx) => (
+                    <div key={wIdx} className="bg-black/40 p-2 rounded border border-white/5 text-[11px] text-gray-300 text-center font-bold">
+                      {w}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Guidelines Section */}
+          <div className="border border-yellow-500/20 bg-yellow-500/5 p-5 rounded-lg">
+            <h4 className="text-sm font-orbitron font-bold text-yellow-500 mb-4 flex items-center gap-2">
+              📢 IMPORTANT GUIDELINES
+            </h4>
+            <ul className="space-y-3 text-xs text-gray-400">
+              <li className="flex items-start gap-2">
+                <span className="text-yellow-500 shrink-0">•</span>
+                <p>All teams must submit their final project before <strong className="text-white">2:15 PM IST</strong>.</p>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-yellow-500 shrink-0">•</span>
+                <p>Only the submitted GitHub repository and project links will be considered during evaluation.</p>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-yellow-500 shrink-0">•</span>
+                <p>Any code or project changes made after the submission deadline may not be considered by the judges.</p>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-yellow-500 shrink-0">•</span>
+                <p>Team Leaders are responsible for submitting the final project on behalf of their team.</p>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-yellow-500 shrink-0">•</span>
+                <p>Keep your GitHub repository, presentation, and demo ready before the submission deadline to avoid last-minute issues.</p>
+              </li>
+            </ul>
+          </div>
+
+          {/* Outro CTA */}
+          <div className="text-center py-4 bg-white/5 rounded-lg border border-[#00F0FF]/20 relative overflow-hidden shadow-[0_0_15px_rgba(0,240,255,0.05)]">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00F0FF]/5 to-transparent animate-pulse" />
+            <h3 className="text-[#00F0FF] font-orbitron font-bold text-xs md:text-sm tracking-widest uppercase">
+              🚀 Build. Innovate. Impress the Judges. See You at HACKVERSE 2026!
+            </h3>
+          </div>
+        </div>
+      )
+    },
     {
       id: "announcement-1",
       date: "21 June 2026",

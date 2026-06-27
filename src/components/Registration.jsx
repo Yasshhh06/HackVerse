@@ -141,8 +141,8 @@ const Registration = () => {
                       <li className="flex items-start gap-4 border-l-2 border-cyber-red pl-3">
                         <span className="p-2 rounded bg-cyber-red/10 text-cyber-red shrink-0">⏰</span>
                         <div>
-                          <strong className="text-cyber-red">RSVP Deadline:</strong>
-                          <p className="text-gray-200 mt-1 font-bold">25th June, 12:00 PM (Strict). Failure to submit this form before the deadline will result in automatic withdrawal of your team.</p>
+                          <strong className="text-cyber-red">RSVP Status:</strong>
+                          <p className="text-gray-200 mt-1 font-bold">Closed on 25th June, 12:00 PM. If your team missed this deadline, please contact the help desk immediately.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-4">
@@ -218,7 +218,7 @@ const Registration = () => {
                   </a>
 
                   <p className="text-cyber-red/80 font-mono text-[10px] mt-6 tracking-wide italic">
-                    &gt; Failure to submit this form before 25th June, 12:00 PM will result in automatic withdrawal.
+                    &gt; The RSVP portal is now closed. For timeline details, check the Updates page.
                   </p>
                 </div>
               </>
