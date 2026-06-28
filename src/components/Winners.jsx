@@ -34,7 +34,7 @@ const QUALIFIED_TEAMS = [
   "STRIFF",
   "Team HACKERS",
   "Straw Hats",
-  "AirNomad",
+  "TST",
   "GODSEC",
   "FourByteForce",
   "Techeys",
@@ -420,7 +420,7 @@ const Winners = () => {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-24">
-          {/* 3rd Runner-Up: AirNomad */}
+          {/* 3rd Runner-Up: TST */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -432,7 +432,7 @@ const Winners = () => {
                 <span className="text-[10px] font-mono text-neon-purple tracking-widest uppercase">🏅 3RD RUNNER-UP</span>
                 <span className="bg-neon-purple/10 text-neon-purple text-[10px] font-bold px-2 py-0.5 rounded font-orbitron">CONVERTED CATEGORY</span>
               </div>
-              <h4 className="text-lg font-bold font-orbitron text-white mb-2">AirNomad</h4>
+              <h4 className="text-lg font-bold font-orbitron text-white mb-2">TST</h4>
               <div className="space-y-1.5 text-xs font-mono text-gray-300 mb-4">
                 <p><span className="text-gray-500">Leader:</span> Kandarp Choudhary</p>
                 <p><span className="text-gray-500">Prize:</span> <span className="text-green-400 font-bold font-orbitron">₹10,000</span></p>
