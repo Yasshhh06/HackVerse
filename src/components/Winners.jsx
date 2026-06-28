@@ -408,7 +408,7 @@ const Winners = () => {
                 📢 BOUNTY PROTOCOL AMENDMENT
               </h4>
               <p className="text-xs text-gray-300 font-mono leading-relaxed">
-                Since no team qualified separately for the <span className="text-neon-purple font-semibold">Best Girls Team</span> and <span className="text-[#00F0FF] font-semibold">Best Boys Team</span> categories, we decided to convert those awards into <span className="text-yellow-500 font-semibold">two additional Runner-Up prizes</span>. This ensures maximum rewards are distributed back to outstanding build achievements!
+                Since no team qualified separately for the <span className="text-neon-purple font-semibold">Best Girls Team</span> and <span className="text-[#00F0FF] font-semibold">Best Boys Team</span> categories, we decided to convert those awards into a 3rd Runner-Up prize (awarded to <span className="text-yellow-500 font-semibold">AirNomad</span>). This ensures maximum rewards are distributed back to outstanding build achievements!
               </p>
             </div>
           </div>
@@ -420,7 +420,7 @@ const Winners = () => {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-24">
-          {/* 3rd Runner-Up: TST */}
+          {/* 3rd Runner-Up: AirNomad */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -432,7 +432,7 @@ const Winners = () => {
                 <span className="text-[10px] font-mono text-neon-purple tracking-widest uppercase">🏅 3RD RUNNER-UP</span>
                 <span className="bg-neon-purple/10 text-neon-purple text-[10px] font-bold px-2 py-0.5 rounded font-orbitron">CONVERTED CATEGORY</span>
               </div>
-              <h4 className="text-lg font-bold font-orbitron text-white mb-2">TST</h4>
+              <h4 className="text-lg font-bold font-orbitron text-white mb-2">AirNomad</h4>
               <div className="space-y-1.5 text-xs font-mono text-gray-300 mb-4">
                 <p><span className="text-gray-500">Leader:</span> Kandarp Choudhary</p>
                 <p><span className="text-gray-500">Prize:</span> <span className="text-green-400 font-bold font-orbitron">₹10,000</span></p>
@@ -443,7 +443,7 @@ const Winners = () => {
             </p>
           </motion.div>
 
-          {/* 4th Runner-Up: Impic */}
+          {/* Best UI/UX / Innovation: Impic */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -453,8 +453,7 @@ const Winners = () => {
           >
             <div>
               <div className="flex justify-between items-center mb-3">
-                <span className="text-[10px] font-mono text-neon-purple tracking-widest uppercase">🏅 4TH RUNNER-UP</span>
-                <span className="bg-neon-purple/10 text-neon-purple text-[10px] font-bold px-2 py-0.5 rounded font-orbitron">CONVERTED CATEGORY</span>
+                <span className="text-[10px] font-mono text-neon-purple tracking-widest uppercase">🏅 BEST UI/UX / INNOVATION</span>
               </div>
               <h4 className="text-lg font-bold font-orbitron text-white mb-2">Impic</h4>
               <div className="space-y-1.5 text-xs font-mono text-gray-300 mb-4">
