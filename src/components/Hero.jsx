@@ -60,7 +60,7 @@ const Hero = () => {
       {/* Bottom fade to next solid section */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black pointer-events-none z-10" />
 
-      {/* ── BROADCAST ALERT BANNER ── */}
+      {/* ── WINNERS BROADCAST ALERT BANNER ── */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -68,14 +68,14 @@ const Hero = () => {
         className="relative z-10 mb-6 max-w-xl px-4"
       >
         <Link 
-          to="/challenges" 
-          className="inline-flex items-center gap-3 bg-neon-purple/10 hover:bg-neon-purple/20 border border-neon-purple/50 px-4 py-2.5 rounded text-xs md:text-sm font-mono text-white transition-all shadow-[0_0_15px_rgba(217,70,239,0.25)] hover:shadow-[0_0_25px_rgba(217,70,239,0.45)] group cursor-pointer"
+          to="/winners" 
+          className="inline-flex items-center gap-3 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/50 px-4 py-2.5 rounded text-xs md:text-sm font-mono text-white transition-all shadow-[0_0_15px_rgba(234,179,8,0.25)] hover:shadow-[0_0_25px_rgba(234,179,8,0.45)] group cursor-pointer"
         >
-          <span className="bg-neon-purple px-1.5 py-0.5 rounded text-[10px] font-bold text-white uppercase tracking-wider animate-pulse">CHALLENGES LIVE</span>
-          <span className="tracking-wide text-gray-200 group-hover:text-white transition-colors text-left">
-            🔥 HACKVERSE 2026 Startup Level-up Challenges are Live! Decrypt directives.
+          <span className="bg-yellow-500 px-1.5 py-0.5 rounded text-[10px] font-bold text-black uppercase tracking-wider animate-bounce">🏆 WINNERS OUT</span>
+          <span className="tracking-wide text-gray-200 group-hover:text-white transition-colors text-left font-mono">
+            🔥 HackVerse 2026 Winners & Leaderboard are officially announced! Check who won.
           </span>
-          <ArrowRight size={14} className="text-neon-purple group-hover:translate-x-1 transition-transform shrink-0" />
+          <ArrowRight size={14} className="text-yellow-500 group-hover:translate-x-1 transition-transform shrink-0" />
         </Link>
       </motion.div>
 
@@ -192,20 +192,20 @@ const Hero = () => {
             className="whitespace-nowrap flex items-center gap-12 relative z-10"
           >
             <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
-              <span className="text-[#FF003C]"> [ BROADCAST ] </span>
-              HACKVERSE IS NOW 100% ONLINE. REGISTERED PARIPANTS GET ₹1000 FEE REFUND + TRAVEL/STAY CANCELLATION SUPPORT.
+              <span className="text-[#FF003C]"> [ WINNERS OUT ] </span>
+              HACKVERSE 2026 HAS OFFICIALLY CONCLUDED. CHECK THE WINNERS PROTOCOL FROM THE NAV BAR.
             </p>
             <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
-              <span className="text-neon-blue"> [ NOTICE ] </span>
-              Registration ends on <span className="text-white font-bold">24 JUN 12:00 PM</span>
+              <span className="text-neon-blue"> [ STATUS ] </span>
+              GRAND CHAMPION: TEAM ANGRY BIRD (🏆 PRIYANSHI VADODARIYA)
             </p>
             <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
-              <span className="text-neon-purple"> [ BONUS ] </span>
-              Each participant receives <span className="text-neon-blue font-bold">$50 worth of AI credits</span> after registration!
+              <span className="text-neon-purple"> [ HYDERABAD ROADSHOW ] </span>
+              14 TEAMS SELECTED FOR THE MICROSOFT HYDERABAD EVENT!
             </p>
             <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4 flex items-center gap-2">
-              <span className="text-[#FF003C]"> [ BROADCAST ] </span>
-              HACKVERSE IS NOW 100% ONLINE. REGISTERED PARIPANTS GET ₹1000 FEE REFUND + TRAVEL/STAY CANCELLATION SUPPORT.
+              <span className="text-[#FF003C]"> [ WINNERS OUT ] </span>
+              HACKVERSE 2026 HAS OFFICIALLY CONCLUDED. CHECK THE WINNERS PROTOCOL FROM THE NAV BAR.
             </p>
           </motion.div>
 

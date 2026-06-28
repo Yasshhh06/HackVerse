@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import Registration from './components/Registration';
 import Updates from './components/Updates';
 import Challenges from './components/Challenges';
+import Winners from './components/Winners';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -58,6 +59,7 @@ function App() {
             <Route path="/registration" element={<div className="relative z-[2]"><Registration /></div>} />
             <Route path="/updates" element={<div className="relative z-[2]"><Updates /></div>} />
             <Route path="/challenges" element={<div className="relative z-[2]"><Challenges /></div>} />
+            <Route path="/winners" element={<div className="relative z-[2]"><Winners /></div>} />
           </Routes>
         </>
       )}
